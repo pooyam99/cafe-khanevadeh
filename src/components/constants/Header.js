@@ -5,25 +5,6 @@ import { COLORS, FONTS } from "../../styles/Theme";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
-const tabs = [
-  {
-    title: "صفحه اصلی",
-    link: "/",
-  },
-  {
-    title: "منو",
-    link: "menu",
-  },
-  {
-    title: "رزرو",
-    link: "reserve",
-  },
-  {
-    title: "تماس با ما",
-    link: "contact",
-  },
-];
-
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -86,6 +67,25 @@ const Header = () => {
     </Box>
   );
 };
+
+const tabs = [
+  {
+    title: "صفحه اصلی",
+    link: "/",
+  },
+  {
+    title: "منو",
+    link: "menu",
+  },
+  {
+    title: "رزرو",
+    link: "reserve",
+  },
+  {
+    title: "تماس با ما",
+    link: "contact",
+  },
+];
 
 export default Header;
 

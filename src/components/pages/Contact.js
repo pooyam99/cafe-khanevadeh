@@ -1,11 +1,14 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, TextField } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
 
 const Contact = () => {
   return (
     <Box sx={styles.container}>
       <Typography sx={styles.welcome}>تماس با ما</Typography>
+      <form>
+        <TextField label="Name" variant="outlined" focused sx={styles.formInput} />
+      </form>
     </Box>
   )
 }
@@ -30,4 +33,8 @@ const styles = {
     fontSize: 40,
     color: COLORS.white,
   },
+  formInput: {
+    borderColor: COLORS.primary,
+    textAlign: 'right',
+  }
 };
