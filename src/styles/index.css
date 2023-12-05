@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "Vazirmatn-Regular";
+  src: local("Vazirmatn-Regular"),
+    url(../assets/fonts/Vazirmatn-RD-FD-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Vazirmatn-Medium";
+  src: local("Vazirmatn-Medium"),
+    url(../assets/fonts/Vazirmatn-RD-FD-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Vazirmatn-Bold";
+  src: local("Vazirmatn-Bold"),
+    url(../assets/fonts/Vazirmatn-RD-FD-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Entezar";
+  src: local("Entezar"),
+    url(../assets/fonts/Entezar.ttf) format("truetype");
+}
