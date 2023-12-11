@@ -58,7 +58,7 @@ const Header = () => {
             </Link>
           </Stack>
           :
-          <Link component="button" underline="none" color={COLORS.secondary} sx={[styles.accountBox, styles.loginBox]} onClick={() => setIsLoggedIn(true)}>
+          <Link component={RouterLink} to='login' underline="none" color={COLORS.secondary} sx={[styles.accountBox, styles.loginBox]} onClick={() => setIsLoggedIn(true)} >
             <PersonIcon />
             <Typography sx={styles.loginText}>ورود / ثبت‌نام</Typography>
           </Link>
