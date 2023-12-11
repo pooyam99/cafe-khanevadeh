@@ -70,9 +70,9 @@ const styles = {
     display: 'flex',
     flexDirection: { sm: 'row', xs: 'column' },
     justifyContent: 'space-between',
+    height: '45vh',
   },
   rightContainer: {
-    height: '45vh',
     width: { sm: '49%', xs: '100%' },
     mb: { sm: 0, xs: 2 },
     display: 'flex',
