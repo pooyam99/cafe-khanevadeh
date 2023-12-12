@@ -14,23 +14,13 @@ const Header = () => {
     >
       <Stack
         gap={2}
-        sx={{ mr: 3, display: { sm: 'flex', xs: 'none' } }}
+        sx={styles.tabs}
         direction="row"
-        divider={
-          <Box
-            sx={{
-              bgcolor: COLORS.secondary,
-              opacity: 0.6,
-              width: "2px",
-              height: "15px",
-              alignSelf: "center",
-            }}
-          />
-        }
+        divider={<Box sx={styles.tabDivider}/>}
       >
         {tabs.map((item) => (
           <Link component={RouterLink} to={item.link} underline="none" color={COLORS.secondary}>
-            <Typography sx={styles.tabs}>{item.title}</Typography>
+            <Typography sx={styles.tabItem}>{item.title}</Typography>
           </Link>
         ))}
       </Stack>
@@ -108,6 +98,17 @@ const styles = {
     overflow: 'hidden',
   },
   tabs: {
+    mr: 3, 
+    display: { sm: 'flex', xs: 'none' }
+  },
+  tabDivider: {
+    bgcolor: COLORS.secondary,
+    opacity: 0.6,
+    width: "2px",
+    height: "15px",
+    alignSelf: "center",
+  },
+  tabItem: {
     fontFamily: FONTS.VZB,
     fontSize: 20,
   },
