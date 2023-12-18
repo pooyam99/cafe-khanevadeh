@@ -70,7 +70,6 @@ const styles = {
     display: 'flex',
     flexDirection: { sm: 'row', xs: 'column' },
     justifyContent: 'space-between',
-    height: '45vh',
   },
   rightContainer: {
     width: { sm: '49%', xs: '100%' },
@@ -86,6 +85,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    gap: 10
   },
   submitBtn: {
     border: 'none',

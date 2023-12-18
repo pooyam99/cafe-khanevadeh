@@ -17,6 +17,8 @@ const FONTS = {
   VZM: "Vazirmatn-Medium",
   VZB: "Vazirmatn-Bold",
   Entezar: "Entezar",
+  YekanR: 'IR-Yekan-Regular',
+  YekanB: 'IR-Yekan-Bold',
 };
 
 const SIZES = {

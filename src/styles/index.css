@@ -32,3 +32,13 @@ code {
   src: local("Entezar"),
     url(../assets/fonts/Entezar.ttf) format("truetype");
 }
+@font-face {
+  font-family: "IR-Yekan-Bold";
+  src: local("IR-Yekan-Bold"),
+    url(../assets/fonts/IR-Yekan-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "IR-Yekan-Regular";
+  src: local("IR-Yekan-Regular"),
+    url(../assets/fonts/IR-Yekan-Regular.ttf) format("truetype");
+}

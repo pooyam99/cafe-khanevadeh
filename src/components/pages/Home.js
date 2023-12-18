@@ -132,7 +132,7 @@ const styles = {
     border: '2px dashed',
     borderColor: COLORS.secondary,
     borderRadius: 5,
-    padding: 2,
+    padding: { sm: 2, xs: 1 },
     textAlign: 'center',
   },
   notifItem: {
@@ -152,9 +152,9 @@ const styles = {
     paddingX: 1
   },
   notifDesc: {
-    textAlign: 'justify',
+    textAlign: 'right',
     fontFamily: FONTS.VZR,
-    fontSize: 18,
+    fontSize: { sm: 18, xs: 14 },
     color: COLORS.lightGray,
     lineHeight: 1.2,
     padding: 1

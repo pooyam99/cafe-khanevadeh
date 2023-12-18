@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled, Select, MenuItem } from "@mui/material";
 import { COLORS, FONTS } from '../styles/Theme';
 
 const Input = styled('input')`
@@ -44,4 +44,43 @@ transition: all 100ms ease;
 }
 `;
 
-export { Input, TextArea }
+const ReserveSelect = styled(Select)`
+direction: rtl;
+display: flex;
+height: 50px;
+color: ${COLORS.secondary};
+border-radius: 20px;
+font-family: ${FONTS.VZM};
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: ${COLORS.gray} !important;
+}
+.MuiSelect-icon {
+  color: ${COLORS.secondary};
+}
+`
+const SelectItem = styled(MenuItem)`
+direction: rtl;
+font-family: ${FONTS.VZR};
+`
+
+const ReserveInput = styled('input')`
+all: unset;
+direction: rtl;
+display: flex;
+height: 47px;
+padding: 0 15px;
+color: ${COLORS.secondary};
+background-color: transparent;
+border: 1px solid ${COLORS.gray};
+border-radius: 20px;
+font-family: ${FONTS.VZM};
+-moz-appearance: textfield;
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+`
+
+export { Input, TextArea, ReserveSelect, SelectItem, ReserveInput }

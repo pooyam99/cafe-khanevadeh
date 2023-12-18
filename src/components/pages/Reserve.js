@@ -1,8 +1,29 @@
-import React from 'react'
-import { Box, Typography } from '@mui/material';
+import React, { useState } from 'react'
+import { Box, Button, ListSubheader, Typography, } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
+import { ReserveInput, ReserveSelect, SelectItem } from '../StyledComponents'
 
 const Reserve = () => {
+  const regex = new RegExp('^(\\+98|0)?9\\d{9}$');
+  
+  const [type, setType] = useState('');
+  const [time, setTime] = useState('');
+  const [isValid, setIsValid] = useState(false);
+
+  const handleTypeChange = (event) => {
+    setType(event.target.value);
+  };
+  const handleTimeChange = (event) => {
+    setTime(event.target.value);
+  };
+  const handleNumChange = (e) => {
+    if (regex.test(e.target.value)) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  };
+
   return (
     <Box sx={styles.container}>
       <Typography sx={styles.reserve}>رزرو</Typography>
@@ -24,7 +45,7 @@ const Reserve = () => {
               ● رزور به‌صورت تلفنی امکان‌پذیر است (به پایین صفحه مراجعه کنید).<br />
               ● ساعات قابل رزرو: روز از ساعت ۹ الی ۱۲، شب از ساعت ۱۸ الی ۲۳.<br />
               ● رزرو دربست به همراه میز بیلیارد برای جشن تولد یا میهمانی خانوادگی امکان‌پذیر است.<br />
-              ● درصورتی که تا ۳۰ دقیقه پس از ساعت موعود تشریف نیاورید، رزرو شما لغو شده و سالن در اختیاط مشتریان حضوری قرار خواهد گرفت.<br />
+              ● درصورتی که تا ۳۰ دقیقه پس از ساعت موعود تشریف نیاورید، رزرو شما لغو شده و سالن در اختیار مشتریان حضوری قرار خواهد گرفت.<br />
               ● درخواست تهیهٔ کیک تولد توسط کافه امکان‌پذیر است.
             </Typography>
           </Box>
@@ -47,10 +68,50 @@ const Reserve = () => {
               ● رزور به‌صورت تلفنی امکان‌پذیر است (به پایین صفحه مراجعه کنید).<br />
               ● ساعات قابل رزرو: شب از ساعت ۱۷ الی ۲۳.<br />
               ● رزرو دربست به همراه مبلمان برای جشن یا میهمانی خانوادگی امکان‌پذیر است.<br />
-              ● درصورتی که تا ۱۰ دقیقه پس از ساعت موعود تشریف نیاورید، رزرو شما لغو شده و میز در اختیاط مشتریان حضوری قرار خواهد گرفت.<br />
+              ● درصورتی که تا ۱۰ دقیقه پس از ساعت موعود تشریف نیاورید، رزرو شما لغو شده و میز در اختیار مشتریان حضوری قرار خواهد گرفت.<br />
             </Typography>
           </Box>
         </Box>
+      </Box>
+      <Box sx={styles.reserveBox}>
+        <Typography sx={styles.title}>رزرو کنید</Typography>
+        <form style={styles.reserveForm}>
+          <ReserveSelect
+            id='type-select'
+            value={type}
+            onChange={handleTypeChange}
+            displayEmpty
+          >
+            <SelectItem disabled value=''>
+              <em>نوع</em>
+            </SelectItem>
+            <SelectItem value={1}>سالن مبلمان</SelectItem>
+            <SelectItem value={2}>میز بیلیارد</SelectItem>
+            <SelectItem value={3}>دربست</SelectItem>
+          </ReserveSelect>
+          <ReserveSelect
+            id='time-select'
+            value={time}
+            onChange={handleTimeChange}
+            displayEmpty
+          >
+            <SelectItem disabled value=''>
+              <em>زمان</em>
+            </SelectItem>
+            <ListSubheader sx={styles.selectDivider}>روز</ListSubheader>
+            <SelectItem value={1}>ساعت ۹</SelectItem>
+            <SelectItem value={2}>ساعت ۱۰</SelectItem>
+            <SelectItem value={3}>ساعت ۱۱</SelectItem>
+            <ListSubheader sx={styles.selectDivider}>شب</ListSubheader>
+            <SelectItem value={3}>ساعت ۱۸</SelectItem>
+            <SelectItem value={3}>ساعت ۱۹</SelectItem>
+            <SelectItem value={3}>ساعت ۲۰</SelectItem>
+            <SelectItem value={3}>ساعت ۲۱</SelectItem>
+            <SelectItem value={3}>ساعت ۲۲</SelectItem>
+          </ReserveSelect>
+          <ReserveInput placeholder='شماره تلفن' type='number' onChange={handleNumChange} />
+          <Button variant='outlined' sx={styles.submitBtn} disabled={!isValid}>ثبت رزرو</Button>
+        </form>
       </Box>
     </Box>
   )
@@ -66,6 +127,8 @@ const styles = {
     borderColor: COLORS.secondary,
     bgcolor: COLORS.primary,
     padding: { sm: 3, xs: 1 },
+    alignContent: 'center',
+    justifyContent: 'center',
   },
   reserve: {
     textAlign: "center",
@@ -74,7 +137,7 @@ const styles = {
     color: COLORS.white,
   },
   mainBox: {
-    mt: 2,
+    marginY: 2,
     display: 'flex',
     flexDirection: { sm: 'row', xs: 'column' },
     justifyContent: 'space-between',
@@ -105,6 +168,40 @@ const styles = {
     borderColor: COLORS.gray,
     borderRadius: 5,
     padding: 2,
-    marginY: 2,
+    mt: { sm: 2, xs: 0.5 },
   },
+  reserveBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginY: 5
+  },
+  reserveForm: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 250,
+    gap: 7.5,
+  },
+  selectDivider: {
+    textAlign: 'right',
+    fontFamily: FONTS.VZB,
+    bgcolor: 'gray',
+    color: 'white',
+  },
+  submitBtn: {
+    borderColor: COLORS.secondary,
+    color: COLORS.secondary,
+    fontFamily: FONTS.VZB,
+    fontSize: 20,
+    height: 50,
+    borderRadius: '20px',
+    "&:hover": {
+      borderColor: COLORS.secondary,
+      backgroundColor: 'rgb(223, 168, 57, 0.03)'
+    },
+    "&.Mui-disabled": {
+      borderColor: COLORS.darkGray,
+      color: COLORS.darkGray,
+    }
+  }
 };

@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Link, Stack, Typography } from "@mui/material";
+import { Box, Link, Stack, Typography, Drawer, Button } from "@mui/material";
 import { COLORS, FONTS } from "../../styles/Theme";
-import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
-    <Box
-      sx={styles.container}
-    >
+    <Box sx={styles.container}>
       <Stack
         gap={2}
         sx={styles.tabs}
-        direction="row"
-        divider={<Box sx={styles.tabDivider}/>}
+        direction='row'
+        divider={<Box sx={styles.tabDivider} />}
       >
         {tabs.map((item) => (
           <Link component={RouterLink} to={item.link} underline="none" color={COLORS.secondary}>
@@ -24,39 +21,41 @@ const Header = () => {
           </Link>
         ))}
       </Stack>
-      <Link to="/" sx={{ display: { sm: 'none', xs: 'flex' } }}>
+      <Button sx={styles.drawerBtn} onClick={() => setIsDrawerOpen(true)} >
+        <MenuOpenIcon sx={{ fontSize: 40 }} />
+      </Button>
+      <Drawer
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        <Box sx={styles.drawerBox} role='presentation'>
+          <Typography sx={{ textAlign: 'center', fontFamily: FONTS.VZR, color: COLORS.secondary }}>صفحه مورد نظر خود را انتخات کنید</Typography>
+          <Stack
+            gap={2}
+            sx={styles.drawerTabs}
+            direction='column'
+          >
+            {tabs.map((item) => (
+              <Button component={RouterLink} to={item.link} variant="outlined" sx={styles.drawerItem} onClick={() => setIsDrawerOpen(false)}>
+                <Typography sx={styles.tabItem}>{item.title}</Typography>
+              </Button>
+            ))}
+          </Stack>
+        </Box>
+      </Drawer>
+      <Link component={RouterLink} to="/" sx={{ display: 'flex' }}>
         <img
           src={require("../../assets/logo-sm.png")}
           alt="Logo"
           width="80"
         />
       </Link>
-      <Box display="flex" flexDirection="row-reverse">
-        {isLoggedIn ?
-          <Stack
-            sx={styles.accountBox}
-            gap={1}
-            divider={<Box sx={styles.divider} />}
-          >
-            <Link component="button" underline="none" color={COLORS.secondary} sx={{ paddingLeft: 2.5, width: 80 }} onClick={() => setIsLoggedIn(false)}>
-              <PersonIcon />
-              <Typography sx={styles.loginText}>پنل کاربری</Typography>
-            </Link>
-            <Link component="button" underline="none" color={COLORS.secondary} sx={{ paddingRight: 2.5 }}>
-              <ShoppingCartOutlinedIcon />
-              <Typography sx={styles.loginText}>سبد سفارش</Typography>
-            </Link>
-          </Stack>
-          :
-          <Link component={RouterLink} to='login' underline="none" color={COLORS.secondary} sx={[styles.accountBox, styles.loginBox]} onClick={() => setIsLoggedIn(true)} >
-            <PersonIcon />
-            <Typography sx={styles.loginText}>ورود / ثبت‌نام</Typography>
-          </Link>
-        }
-      </Box>
     </Box>
   );
 };
+
+export default Header;
 
 const tabs = [
   {
@@ -77,8 +76,6 @@ const tabs = [
   },
 ];
 
-export default Header;
-
 const styles = {
   container: {
     mt: { sm: 10, xs: 2.5 },
@@ -92,13 +89,14 @@ const styles = {
     borderColor: COLORS.secondary,
     bgcolor: COLORS.primary,
     padding: 2,
+    height: 75,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     overflow: 'hidden',
   },
   tabs: {
-    mr: 3, 
+    mr: 3,
     display: { sm: 'flex', xs: 'none' }
   },
   tabDivider: {
@@ -112,27 +110,28 @@ const styles = {
     fontFamily: FONTS.VZB,
     fontSize: 20,
   },
-  divider: {
-    bgcolor: COLORS.primary,
-    width: "3px",
-    height: "100%",
-    alignSelf: "center",
-  },
-  accountBox: {
-    display: "flex",
-    flexDirection: "row-reverse",
-    borderRadius: 10,
+  drawerBtn: {
+    mr: 1,
+    display: { sm: 'none', xs: 'flex' },
+    padding: 1,
+    borderRadius: 15,
+    color: COLORS.secondary,
     bgcolor: COLORS.bg,
-    width: 180,
-    height: 75
   },
-  loginBox: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+  drawerBox: {
+    p: 2,
+    width: '250px',
+    height: '100%',
+    bgcolor: COLORS.primary,
   },
-  loginText: {
-    fontFamily: FONTS.VZR,
-    fontSize: 12,
+  drawerTabs: {
+    direction: 'rtl',
+    padding: 2,
+  },
+  drawerItem: {
+    textAlign: 'right',
+    color: COLORS.secondary,
+    borderColor: COLORS.secondary,
+    borderRadius: 5,
   },
 };
