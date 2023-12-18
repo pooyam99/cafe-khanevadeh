@@ -21,6 +21,8 @@ const Menu = () => {
       <Typography sx={styles.message}>قیمت‌ها به تومان می‌باشند</Typography>
       <Box sx={styles.mainBox}>
         <Grid container rowSpacing={4} columnSpacing={2}>
+
+
           <Grid item sm={6} xs={12}>
             <Box sx={{ display: 'flex', mb: 1 }}>
               <CoffeeIcon sx={{ fontSize: 40, color: 'white' }} />
@@ -38,6 +40,8 @@ const Menu = () => {
               ))}
             </Stack>
           </Grid>
+
+
           <Grid item sm={6} xs={12}>
             <Box sx={{ display: 'flex', mb: 1 }}>
               <LocalCafeIcon sx={{ fontSize: 40, color: 'white' }} />
@@ -55,6 +59,8 @@ const Menu = () => {
               ))}
             </Stack>
           </Grid>
+
+
           <Grid item sm={6} xs={12}>
             <Box sx={{ display: 'flex', mb: 1 }}>
               <LunchDiningIcon sx={{ fontSize: 40, color: 'white', ml: 0.4 }} />
@@ -72,6 +78,8 @@ const Menu = () => {
               ))}
             </Stack>
           </Grid>
+
+
           <Grid item sm={6} xs={12}>
             <Box sx={{ display: 'flex', mb: 1 }}>
               <LocalBarIcon sx={{ fontSize: 40, color: 'white' }} />
@@ -89,6 +97,8 @@ const Menu = () => {
               ))}
             </Stack>
           </Grid>
+
+          
         </Grid>
       </Box>
     </Box>
