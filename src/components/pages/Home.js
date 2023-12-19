@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Typography, ImageList, ImageListItem, Stack } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
-import { itemData } from '../../assets/images/ImgRef'
+import { itemData } from '../../assets/ImgRef'
+import { NotifData } from '../../assets/NotifData'
 
 const Home = () => {
   return (
@@ -21,9 +22,9 @@ const Home = () => {
             <Typography sx={styles.title}>تابلو اعلانات</Typography>
             <Stack gap={1} sx={{ mt: 1 }}>
               {
-                notifications.length !== 0
+                NotifData.length !== 0
                   ?
-                  notifications.map((item) => (
+                  NotifData.map((item) => (
                     <Box sx={styles.notifItem}>
                       <Typography sx={styles.notifTitle}>{item.title}</Typography>
                       <Typography sx={styles.notifDesc}>{item.description}</Typography>
@@ -55,25 +56,6 @@ const Home = () => {
     </Box>
   )
 }
-
-const notifications = [
-  {
-    title: 'تعطیلی',
-    description: 'کافه از تاریخ جمعه ۱۸ آذر تا پنجشنبه ۲۳ آذر تعطیل می‌باشد.'
-  },
-  {
-    title: 'بیلیارد',
-    description: 'میز بیلیارد برای روز چهارشنبه از ساعت ۲۰ الی ۲۲ رزرو می‌باشد.'
-  },
-  {
-    title: 'سالن',
-    description: 'سالن پشتی (مبلمان و میز بیلیارد) به‌طور دربست برای روز پنجشنبه ساعت ۲۱ الی ۲۳ رزرو بوده و از ورود افراد متفرقه جلوگیری خواهد شد.'
-  },
-  {
-    title: 'موجودی',
-    description: 'قهوه گلد موجود شد.'
-  },
-]
 
 export default Home
 

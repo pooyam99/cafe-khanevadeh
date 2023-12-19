@@ -25,6 +25,7 @@ transition: all 100ms ease;
 const TextArea = styled('textarea')`
 all: unset;
 padding: 5px 10px;
+height: 100%;
 text-align: right;
 background-color: ${COLORS.darkGray};
 border: 1px solid transparent;

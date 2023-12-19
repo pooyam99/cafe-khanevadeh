@@ -31,7 +31,7 @@ const Reserve = () => {
         <Box sx={styles.rightContainer}>
           <Typography sx={styles.title}>سالن مبلمان</Typography>
           <img
-            src={require('../../assets/images/reserve-page-placeholder-1.jpg')}
+            src={require('../../assets/images/reserve-1.jpg')}
             alt='Sofa'
             width='100%'
             height='360'
@@ -53,7 +53,7 @@ const Reserve = () => {
         <Box sx={styles.leftContainer}>
           <Typography sx={styles.title}>میز بیلیارد</Typography>
           <img
-            src={require('../../assets/images/reserve-page-placeholder-2.jpg')}
+            src={require('../../assets/images/reserve-2.jpg')}
             alt='Billiard'
             width='100%'
             height='360'
@@ -109,7 +109,7 @@ const Reserve = () => {
             <SelectItem value={3}>ساعت ۲۱</SelectItem>
             <SelectItem value={3}>ساعت ۲۲</SelectItem>
           </ReserveSelect>
-          <ReserveInput placeholder='شماره تلفن' type='number' onChange={handleNumChange} />
+          <ReserveInput placeholder='شماره همراه' type='number' onChange={handleNumChange} />
           <Button variant='outlined' sx={styles.submitBtn} disabled={!isValid}>ثبت رزرو</Button>
         </form>
       </Box>

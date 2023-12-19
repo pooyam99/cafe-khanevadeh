@@ -18,8 +18,8 @@ const Contact = () => {
         <Box sx={styles.rightContainer}>
           <form style={styles.messageForm}>
             <Input type='text' placeholder='نام' />
-            <Input type='text' placeholder='ایمیل' />
-            <TextArea name='message' wrap='hard' placeholder='متن پیام' style={{ height: '28vh' }} />
+            <Input type='text' placeholder='شماره همراه' />
+            <TextArea name='message' wrap='hard' placeholder='متن پیام' />
             <Button sx={styles.submitBtn}>ارسال پیام</Button>
           </form>
         </Box>
@@ -84,7 +84,6 @@ const styles = {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
     gap: 10
   },
   submitBtn: {
