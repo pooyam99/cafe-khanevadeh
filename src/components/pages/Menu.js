@@ -24,14 +24,14 @@ const Menu = () => {
 
 
           <Grid item sm={6} xs={12}>
-            <Box sx={{ display: 'flex', mb: 1 }}>
-              <CoffeeIcon sx={{ fontSize: 40, color: 'white' }} />
-              <Typography sx={styles.category}>قـــهـــوه بــــــار</Typography>
+            <Box sx={styles.categoryBox}>
+              <CoffeeIcon sx={styles.categoryIcon} />
+              <Typography sx={styles.categoryTitle}>قـــهـــوه بــــــار</Typography>
             </Box>
             <Stack gap={1}>
               {MenuLists.coffees.map((item) => (
                 <Box sx={styles.menuItem}>
-                  <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+                  <Box sx={styles.menuItemTitleBox}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
                     {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
@@ -43,14 +43,14 @@ const Menu = () => {
 
 
           <Grid item sm={6} xs={12}>
-            <Box sx={{ display: 'flex', mb: 1 }}>
-              <LocalCafeIcon sx={{ fontSize: 40, color: 'white' }} />
-              <Typography sx={styles.category}>شـــکــــلات بــــــار</Typography>
+            <Box sx={styles.categoryBox}>
+              <LocalCafeIcon sx={styles.categoryIcon} />
+              <Typography sx={styles.categoryTitle}>شـــکــــلات بــــــار</Typography>
             </Box>
             <Stack gap={1}>
               {MenuLists.chocolates.map((item) => (
                 <Box sx={styles.menuItem}>
-                  <Box sx={{ display: { sm: 'flex', xs: 'inline-block' }, gap: 0.5, alignItems: 'center' }}>
+                  <Box sx={[styles.menuItemTitleBox, { display: { sm: 'flex', xs: 'inline-block' } }]}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
                     {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
@@ -62,14 +62,14 @@ const Menu = () => {
 
 
           <Grid item sm={6} xs={12}>
-            <Box sx={{ display: 'flex', mb: 1 }}>
-              <LunchDiningIcon sx={{ fontSize: 40, color: 'white', ml: 0.4 }} />
-              <Typography sx={styles.category}>غـــــذا و دســـــر</Typography>
+            <Box sx={styles.categoryBox}>
+              <LunchDiningIcon sx={[styles.categoryIcon, { ml: 0.4 }]} />
+              <Typography sx={styles.categoryTitle}>غـــــذا و دســـــر</Typography>
             </Box>
             <Stack gap={1}>
               {MenuLists.foods.map((item) => (
                 <Box sx={styles.menuItem}>
-                  <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+                  <Box sx={styles.menuItemTitleBox}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
                     {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
@@ -81,14 +81,14 @@ const Menu = () => {
 
 
           <Grid item sm={6} xs={12}>
-            <Box sx={{ display: 'flex', mb: 1 }}>
-              <LocalBarIcon sx={{ fontSize: 40, color: 'white' }} />
-              <Typography sx={styles.category}>نوشیدنی، بستنی و کیک</Typography>
+            <Box sx={styles.categoryBox}>
+              <LocalBarIcon sx={styles.categoryIcon} />
+              <Typography sx={styles.categoryTitle}>نوشیدنی، بستنی و کیک</Typography>
             </Box>
             <Stack gap={1}>
               {MenuLists.drinks.map((item) => (
                 <Box sx={styles.menuItem}>
-                  <Box sx={{ display: { sm: 'flex', xs: 'inline-block' }, gap: 0.5, alignItems: 'center' }}>
+                  <Box sx={[styles.menuItemTitleBox, { display: { sm: 'flex', xs: 'inline-block' } }]}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
                     {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
@@ -98,7 +98,7 @@ const Menu = () => {
             </Stack>
           </Grid>
 
-          
+
         </Grid>
       </Box>
     </Box>
@@ -136,10 +136,18 @@ const styles = {
   mainBox: {
     direction: "rtl",
   },
-  category: {
+  categoryBox: {
+    display: 'flex',
+    mb: 1,
+  },
+  categoryTitle: {
     fontFamily: FONTS.VZB,
     fontSize: 25,
     color: COLORS.secondary,
+  },
+  categoryIcon: {
+    fontSize: 40,
+    color: 'white',
   },
   menuItem: {
     display: 'flex',
@@ -150,6 +158,11 @@ const styles = {
     bgcolor: COLORS.bg,
     boxShadow: '0 3px 15px 1px inset',
     borderBottom: '1px solid rgb(255, 255, 255, 0.2)'
+  },
+  menuItemTitleBox: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 0.5,
   },
   menuItemTitle: {
     fontFamily: FONTS.YekanR,
