@@ -16,7 +16,7 @@ const MessageItem = ({ id, name, phoneNum, message, onDelete, ...props }) => {
   return (
     <Box sx={styles.notifItem} {...props}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-        <Typography sx={styles.notifTitle}>{name} به شماره {phoneNum}</Typography>
+        <Typography sx={styles.notifTitle}>{name}، به شماره {phoneNum}</Typography>
         <Button sx={styles.deleteBtn} onClick={handleClick} >حذف</Button>
       </Box>
       <Typography sx={styles.notifDesc}>{message}</Typography>

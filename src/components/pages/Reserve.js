@@ -34,6 +34,10 @@ const Reserve = () => {
         body: JSON.stringify({ id: new Date().getTime(), type, time, phoneNum }),
         headers: { 'Content-Type': 'application/json' }
       })
+      setType('')
+      setTime('')
+      setPhoneNum('')
+      setIsValid(false)
     } catch (error) {
       console.error(error)
     }
@@ -124,7 +128,7 @@ const Reserve = () => {
             <SelectItem value={21}>ساعت ۲۱</SelectItem>
             <SelectItem value={22}>ساعت ۲۲</SelectItem>
           </ReserveSelect>
-          <ReserveInput placeholder='شماره همراه' type='number' onChange={handleNumChange} />
+          <ReserveInput placeholder='شماره همراه' type='number' value={phoneNum} onChange={handleNumChange} />
           <Button variant='outlined' sx={styles.submitBtn} disabled={!isValid} type='submit'>ثبت رزرو</Button>
         </form>
       </Box>
