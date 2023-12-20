@@ -1,20 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
-import { MenuData } from '../../assets/MenuData';
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import LocalBarIcon from '@mui/icons-material/LocalBar';
 
-const MenuLists = {
-  coffees: MenuData.filter((item) => item.type === 'coffee'),
-  chocolates: MenuData.filter((item) => item.type === 'chocolate'),
-  foods: MenuData.filter((item) => item.type === 'food'),
-  drinks: MenuData.filter((item) => item.type === 'drink'),
-}
-
 const Menu = () => {
+  const [MenuData, setMenuData] = useState([])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const getData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/menu', { signal: controller.signal })
+        if (response.ok) {
+          const result = await response.json()
+          setMenuData(result)
+        }
+      } catch (error) {
+
+      }
+    }
+    getData()
+    return () => {
+      controller.abort()
+    }
+  }, [])
+
+
+  const MenuLists = {
+    coffees: MenuData.filter((item) => item.type === 'coffee'),
+    chocolates: MenuData.filter((item) => item.type === 'chocolate'),
+    foods: MenuData.filter((item) => item.type === 'food'),
+    drinks: MenuData.filter((item) => item.type === 'drink'),
+  }
+
+
   return (
     <Box sx={styles.container}>
       <Typography sx={styles.welcome}>منو</Typography>
@@ -33,7 +55,7 @@ const Menu = () => {
                 <Box sx={styles.menuItem}>
                   <Box sx={styles.menuItemTitleBox}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
-                    {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
+                    {item.desc ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
                   <Typography sx={styles.menuItemPrice}>{item.price}</Typography>
                 </Box>
@@ -52,7 +74,7 @@ const Menu = () => {
                 <Box sx={styles.menuItem}>
                   <Box sx={[styles.menuItemTitleBox, { display: { sm: 'flex', xs: 'inline-block' } }]}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
-                    {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
+                    {item.desc ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
                   <Typography sx={styles.menuItemPrice}>{item.price}</Typography>
                 </Box>
@@ -71,7 +93,7 @@ const Menu = () => {
                 <Box sx={styles.menuItem}>
                   <Box sx={styles.menuItemTitleBox}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
-                    {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
+                    {item.desc ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
                   <Typography sx={styles.menuItemPrice}>{item.price}</Typography>
                 </Box>
@@ -90,7 +112,7 @@ const Menu = () => {
                 <Box sx={styles.menuItem}>
                   <Box sx={[styles.menuItemTitleBox, { display: { sm: 'flex', xs: 'inline-block' } }]}>
                     <Typography sx={styles.menuItemTitle}>{item.title}</Typography>
-                    {item.desc !== '' ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
+                    {item.desc ? <Typography sx={styles.menuItemDesc}>({item.desc})</Typography> : null}
                   </Box>
                   <Typography sx={styles.menuItemPrice}>{item.price}</Typography>
                 </Box>

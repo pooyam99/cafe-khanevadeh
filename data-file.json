@@ -1,0 +1,220 @@
+{
+  "uuid": "0398445b-9165-424f-a99d-e494b3cf7a2c",
+  "lastMigration": 32,
+  "name": "Data file",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 4000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "bf5fa92e-1754-497f-a7f4-2bd44986c3a7",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "menu",
+      "responses": [
+        {
+          "uuid": "57bad1e9-7f9e-4424-bbc8-d86afb318f0b",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "abt9",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "b3f0caaa-e0ca-4b14-919d-0e1154ec8173",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "notifications",
+      "responses": [
+        {
+          "uuid": "b1af25da-eb45-4a59-9ccd-b8128623aca6",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "mwru",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "468ff03e-7117-4545-a751-adca83e13467",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "reserve",
+      "responses": [
+        {
+          "uuid": "26be3207-14f1-4da4-9e8a-ad5edaefcf4e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "a61e",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "053b01e0-e52e-4091-8056-38d0378f63fd",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "message",
+      "responses": [
+        {
+          "uuid": "9769edc9-50b4-4183-8ea7-13fe667660a6",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "0x8y",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "bf5fa92e-1754-497f-a7f4-2bd44986c3a7"
+    },
+    {
+      "type": "route",
+      "uuid": "b3f0caaa-e0ca-4b14-919d-0e1154ec8173"
+    },
+    {
+      "type": "route",
+      "uuid": "468ff03e-7117-4545-a751-adca83e13467"
+    },
+    {
+      "type": "route",
+      "uuid": "053b01e0-e52e-4091-8056-38d0378f63fd"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "6496e3a3-084d-4902-823c-0ed6cc2449d7",
+      "id": "mwru",
+      "name": "notifications",
+      "documentation": "",
+      "value": "[\n  {\n    \"id\": 11,\n    \"title\": \"تعطیلی\",\n    \"description\": \"کافه از تاریخ جمعه ۱۸ آذر تا پنجشنبه ۲۳ آذر تعطیل می‌باشد.\"\n  },\n  {\n    \"id\": 12,\n    \"title\": \"بیلیارد\",\n    \"description\": \"میز بیلیارد برای روز چهارشنبه از ساعت ۲۰ الی ۲۲ رزرو می‌باشد.\"\n  },\n  {\n    \"id\": 13,\n    \"title\": \"سالن\",\n    \"description\": \"سالن پشتی (مبلمان و میز بیلیارد) به‌طور دربست برای روز پنجشنبه ساعت ۲۱ الی ۲۳ رزرو بوده و از ورود افراد متفرقه جلوگیری خواهد شد.\"\n  },\n  {\n    \"id\": 14,\n    \"title\": \"موجودی\",\n    \"description\": \"قهوه گلد موجود شد.\"\n  }\n]"
+    },
+    {
+      "uuid": "2509521e-698a-4db9-a6e2-6e287a280a97",
+      "id": "abt9",
+      "name": "menu",
+      "documentation": "",
+      "value": "[\n  {\n    \"id\": 11,\n    \"type\": \"coffee\",\n    \"title\": \"اسپرسو\",\n    \"desc\": \"تک | دوبل\",\n    \"price\": \"20.000 | 15.000\"\n  },\n  {\n    \"id\": 12,\n    \"type\": \"coffee\",\n    \"title\": \"ایبریک\",\n    \"desc\": \"قهوه ترک\",\n    \"price\": \"30.000\"\n  },\n  {\n    \"id\": 13,\n    \"type\": \"coffee\",\n    \"title\": \"لاته\",\n    \"desc\": \"\",\n    \"price\": \"35.000\"\n  },\n  {\n    \"id\": 14,\n    \"type\": \"coffee\",\n    \"title\": \"کاپوچینو\",\n    \"desc\": \"کوچک | بزرگ\",\n    \"price\": \"35.000 | 25.000\"\n  },\n  {\n    \"id\": 15,\n    \"type\": \"coffee\",\n    \"title\": \"چای ماسالا\",\n    \"desc\": \"کوچک | بزرگ\",\n    \"price\": \"35.000 | 25.000\"\n  },\n  {\n    \"id\": 16,\n    \"type\": \"coffee\",\n    \"title\": \"چای فوری\",\n    \"desc\": \"\",\n    \"price\": \"15.000\"\n  },\n  {\n    \"id\": 17,\n    \"type\": \"coffee\",\n    \"title\": \"نسکافه\",\n    \"desc\": \"عادی | دالگونا\",\n    \"price\": \"30.000 | 20.000\"\n  },\n  {\n    \"id\": 21,\n    \"type\": \"chocolate\",\n    \"title\": \"هات چاکلت\",\n    \"desc\": \"کوچک | بزرگ\",\n    \"price\": \"40.000 | 25.000\"\n  },\n  {\n    \"id\": 22,\n    \"type\": \"chocolate\",\n    \"title\": \"بنانا چاکلت\",\n    \"desc\": \"سیروپ موز + هات چاکلت + تکه‌های موز\",\n    \"price\": \"45.000\"\n  },\n  {\n    \"id\": 23,\n    \"type\": \"chocolate\",\n    \"title\": \"نوتلا چاکلت\",\n    \"desc\": \"نوتلا + هات چاکلت\",\n    \"price\": \"50.000\"\n  },\n  {\n    \"id\": 24,\n    \"type\": \"chocolate\",\n    \"title\": \"بری چاکلت\",\n    \"desc\": \"سیروپ توت‌فرنگی + هات چاکلت\",\n    \"price\": \"45.000\"\n  },\n  {\n    \"id\": 25,\n    \"type\": \"chocolate\",\n    \"title\": \"ماروچینو\",\n    \"desc\": \"اسپرسو + هات چاکلت\",\n    \"price\": \"45.000\"\n  },\n  {\n    \"id\": 26,\n    \"type\": \"chocolate\",\n    \"title\": \"کارامل ماکیاتو\",\n    \"desc\": \"سیروپ کارامل + اسپرسو + شیر\",\n    \"price\": \"35.000\"\n  },\n  {\n    \"id\": 27,\n    \"type\": \"chocolate\",\n    \"title\": \"موکا\",\n    \"desc\": \"سیروپ شکلات + اسپرسو + شیر\",\n    \"price\": \"35.000\"\n  },\n  {\n    \"id\": 31,\n    \"type\": \"food\",\n    \"title\": \"هات چیپس\",\n    \"desc\": \"عادی | ویژه\",\n    \"price\": \"90.000 | 80.000\"\n  },\n  {\n    \"id\": 32,\n    \"type\": \"food\",\n    \"title\": \"چیزبرگر\",\n    \"desc\": \"\",\n    \"price\": \"100.000\"\n  },\n  {\n    \"id\": 33,\n    \"type\": \"food\",\n    \"title\": \"نیمرو\",\n    \"desc\": \"\",\n    \"price\": \"30.000\"\n  },\n  {\n    \"id\": 34,\n    \"type\": \"food\",\n    \"title\": \"املت\",\n    \"desc\": \"\",\n    \"price\": \"40.000\"\n  },\n  {\n    \"id\": 35,\n    \"type\": \"food\",\n    \"title\": \"سیب‌زمینی بدون روغن\",\n    \"desc\": \"\",\n    \"price\": \"40.000\"\n  },\n  {\n    \"id\": 41,\n    \"type\": \"drink\",\n    \"title\": \"میلک شیک\",\n    \"desc\": \"انبه و آناناس | غیره\",\n    \"price\": \"50.000 | 60.000\"\n  },\n  {\n    \"id\": 42,\n    \"type\": \"drink\",\n    \"title\": \"اسموتی\",\n    \"desc\": \"موز و توت‌فرنگی | انبه و آناناس\",\n    \"price\": \"75.000 | 65.000\"\n  },\n  {\n    \"id\": 43,\n    \"type\": \"drink\",\n    \"title\": \"کافه گلاسه\",\n    \"desc\": \"\",\n    \"price\": \"40.000\"\n  },\n  {\n    \"id\": 44,\n    \"type\": \"drink\",\n    \"title\": \"بستنی اسکوپ\",\n    \"desc\": \"\",\n    \"price\": \"15.000\"\n  },\n  {\n    \"id\": 45,\n    \"type\": \"drink\",\n    \"title\": \"کیک بستنی\",\n    \"desc\": \"\",\n    \"price\": \"60.000\"\n  },\n  {\n    \"id\": 46,\n    \"type\": \"drink\",\n    \"title\": \"کیک شکلاتی\",\n    \"desc\": \"\",\n    \"price\": \"بپرسید\"\n  }\n]"
+    },
+    {
+      "uuid": "ad16ee36-2cfc-4202-9cc3-d11e8fedc9ca",
+      "id": "a61e",
+      "name": "reserve",
+      "documentation": "",
+      "value": "[]"
+    },
+    {
+      "uuid": "cedb85c5-53ed-45fe-9c9d-16a9dcac8b83",
+      "id": "0x8y",
+      "name": "message",
+      "documentation": "",
+      "value": "[]"
+    }
+  ],
+  "callbacks": []
+}

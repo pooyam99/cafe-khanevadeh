@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Typography, Button } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
 import { Input, TextArea } from '../StyledComponents'
 
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+  };
+  const handleNumChange = (e) => {
+    setPhoneNum(e.target.value)
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log({ name, phoneNum, message })
+    try {
+      await fetch('http://localhost:4000/message', {
+        method: 'POST',
+        body: JSON.stringify({ id: new Date().getTime(), name, phoneNum, message }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      setName('')
+      setPhoneNum('')
+      setMessage('')
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Box sx={styles.container}>
@@ -16,11 +46,11 @@ const Contact = () => {
       </Box>
       <Box sx={styles.mainBox}>
         <Box sx={styles.rightContainer}>
-          <form style={styles.messageForm}>
-            <Input type='text' placeholder='نام' />
-            <Input type='text' placeholder='شماره همراه' />
-            <TextArea name='message' wrap='hard' placeholder='متن پیام' />
-            <Button sx={styles.submitBtn}>ارسال پیام</Button>
+          <form style={styles.messageForm} onSubmit={handleSubmit}>
+            <Input type='text' placeholder='نام' value={name} onChange={handleNameChange} />
+            <Input type='text' placeholder='شماره همراه' value={phoneNum} onChange={handleNumChange} />
+            <TextArea name='message' wrap='hard' placeholder='متن پیام' value={message} onChange={handleMessageChange} />
+            <Button sx={styles.submitBtn} type='submit'>ارسال پیام</Button>
           </form>
         </Box>
         <Box sx={styles.leftContainer}>

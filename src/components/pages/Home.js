@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography, ImageList, ImageListItem, Stack } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
 import { itemData } from '../../assets/ImgRef'
-import { NotifData } from '../../assets/NotifData'
 
 const Home = () => {
+  const [NotifData, setNotifData] = useState([])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const getData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/notifications', { signal: controller.signal })
+        if (response.ok) {
+          const result = await response.json()
+          setNotifData(result)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getData()
+    return () => {
+      controller.abort()
+    }
+  }, [])
+
   return (
     <Box sx={styles.container}>
       <Typography sx={styles.welcome}>به کافه خانواده خوش آمدید</Typography>

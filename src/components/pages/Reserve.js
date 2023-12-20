@@ -5,16 +5,17 @@ import { ReserveInput, ReserveSelect, SelectItem } from '../StyledComponents'
 
 const Reserve = () => {
   const regex = new RegExp('^(\\+98|0)?9\\d{9}$');
-  
+
   const [type, setType] = useState('');
   const [time, setTime] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
   const [isValid, setIsValid] = useState(false);
 
-  const handleTypeChange = (event) => {
-    setType(event.target.value);
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
   };
-  const handleTimeChange = (event) => {
-    setTime(event.target.value);
+  const handleTimeChange = (e) => {
+    setTime(e.target.value);
   };
   const handleNumChange = (e) => {
     if (regex.test(e.target.value)) {
@@ -22,7 +23,21 @@ const Reserve = () => {
     } else {
       setIsValid(false);
     }
+    setPhoneNum(e.target.value)
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log({ time, type, phoneNum })
+    try {
+      await fetch('http://localhost:4000/reserve', {
+        method: 'POST',
+        body: JSON.stringify({ id: new Date().getTime(), type, time, phoneNum }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Box sx={styles.container}>
@@ -75,7 +90,7 @@ const Reserve = () => {
       </Box>
       <Box sx={styles.reserveBox}>
         <Typography sx={styles.title}>رزرو کنید</Typography>
-        <form style={styles.reserveForm}>
+        <form style={styles.reserveForm} onSubmit={handleSubmit}>
           <ReserveSelect
             id='type-select'
             value={type}
@@ -85,9 +100,9 @@ const Reserve = () => {
             <SelectItem disabled value=''>
               <em>نوع</em>
             </SelectItem>
-            <SelectItem value={1}>سالن مبلمان</SelectItem>
-            <SelectItem value={2}>میز بیلیارد</SelectItem>
-            <SelectItem value={3}>دربست</SelectItem>
+            <SelectItem value={'سالن مبلمان'}>سالن مبلمان</SelectItem>
+            <SelectItem value={'میز بیلیارد'}>میز بیلیارد</SelectItem>
+            <SelectItem value={'دربست'}>دربست</SelectItem>
           </ReserveSelect>
           <ReserveSelect
             id='time-select'
@@ -99,18 +114,18 @@ const Reserve = () => {
               <em>زمان</em>
             </SelectItem>
             <ListSubheader sx={styles.selectDivider}>روز</ListSubheader>
-            <SelectItem value={1}>ساعت ۹</SelectItem>
-            <SelectItem value={2}>ساعت ۱۰</SelectItem>
-            <SelectItem value={3}>ساعت ۱۱</SelectItem>
+            <SelectItem value={9}>ساعت ۹</SelectItem>
+            <SelectItem value={10}>ساعت ۱۰</SelectItem>
+            <SelectItem value={11}>ساعت ۱۱</SelectItem>
             <ListSubheader sx={styles.selectDivider}>شب</ListSubheader>
-            <SelectItem value={3}>ساعت ۱۸</SelectItem>
-            <SelectItem value={3}>ساعت ۱۹</SelectItem>
-            <SelectItem value={3}>ساعت ۲۰</SelectItem>
-            <SelectItem value={3}>ساعت ۲۱</SelectItem>
-            <SelectItem value={3}>ساعت ۲۲</SelectItem>
+            <SelectItem value={18}>ساعت ۱۸</SelectItem>
+            <SelectItem value={19}>ساعت ۱۹</SelectItem>
+            <SelectItem value={20}>ساعت ۲۰</SelectItem>
+            <SelectItem value={21}>ساعت ۲۱</SelectItem>
+            <SelectItem value={22}>ساعت ۲۲</SelectItem>
           </ReserveSelect>
           <ReserveInput placeholder='شماره همراه' type='number' onChange={handleNumChange} />
-          <Button variant='outlined' sx={styles.submitBtn} disabled={!isValid}>ثبت رزرو</Button>
+          <Button variant='outlined' sx={styles.submitBtn} disabled={!isValid} type='submit'>ثبت رزرو</Button>
         </form>
       </Box>
     </Box>
