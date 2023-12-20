@@ -10,8 +10,8 @@ const Admin = () => {
     <Box className="App">
       <Container maxWidth="lg" sx={{ minHeight: "100vh" }}>
         <Box sx={styles.container}>
-         <Box sx={styles.sideBar}>
-             <List>
+          <Box sx={styles.sideBar}>
+            <List>
               <ListItem sx={{ padding: 0 }}>
                 <ListItemButton sx={{ color: COLORS.secondary }} onClick={() => setActiveTab('notifs')}>
                   <ListItemText sx={styles.itemText} primary="اعلانات" />

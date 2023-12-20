@@ -133,5 +133,9 @@ const styles = {
     color: COLORS.secondary,
     borderColor: COLORS.secondary,
     borderRadius: 5,
+    "&:hover": {
+      borderColor: COLORS.secondary,
+      backgroundColor: 'rgb(223, 168, 57, 0.03)'
+    },
   },
 };
