@@ -30,7 +30,7 @@ const Header = () => {
         onClose={() => setIsDrawerOpen(false)}
       >
         <Box sx={styles.drawerBox} role='presentation'>
-          <Typography sx={{ textAlign: 'center', fontFamily: FONTS.VZR, color: COLORS.secondary }}>صفحه مورد نظر خود را انتخات کنید</Typography>
+          <Typography sx={{ textAlign: 'center', fontFamily: FONTS.VZR, color: COLORS.secondary }}>صفحه مورد نظر خود را انتخاب کنید</Typography>
           <Stack
             gap={2}
             sx={styles.drawerTabs}
