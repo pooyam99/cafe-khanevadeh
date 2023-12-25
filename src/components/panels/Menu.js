@@ -170,8 +170,8 @@ const styles = {
   menuItemBox: { 
     display: 'flex', 
     flexDirection: { sm: 'row', xs: 'column'},
-    justifyContent: 
-    'space-between', gap: 1 
+    justifyContent: 'space-between',
+    gap: 1 
   },
   menuItem: {
     display: 'flex',
