@@ -1,7 +1,7 @@
-import pic1 from '../assets/images/home-1.jpg'
-import pic2 from '../assets/images/home-2.jpg'
-import pic3 from '../assets/images/home-4.jpg'
-import pic4 from '../assets/images/home-3.jpg'
+import pic1 from '../images/home-1.jpg'
+import pic2 from '../images/home-2.jpg'
+import pic3 from '../images/home-4.jpg'
+import pic4 from '../images/home-3.jpg'
 
 export const itemData = [
   {

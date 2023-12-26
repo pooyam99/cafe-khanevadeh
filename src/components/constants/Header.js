@@ -46,7 +46,7 @@ const Header = () => {
       </Drawer>
       <Link component={RouterLink} to="/" sx={{ display: 'flex' }}>
         <img
-          src={require("../../assets/logo-sm.png")}
+          src={require("../../assets/misc/logo-sm.png")}
           alt="Logo"
           width="80"
         />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Typography, ImageList, ImageListItem, Stack } from '@mui/material';
 import { COLORS, FONTS } from '../../styles/Theme';
-import { itemData } from '../../assets/ImgRef'
+import { itemData } from '../../assets/misc/ImgRef'
 
 const Home = () => {
   const [NotifData, setNotifData] = useState([])

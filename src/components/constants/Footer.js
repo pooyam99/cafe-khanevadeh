@@ -34,7 +34,7 @@ const Footer = () => {
       </Box>
       <Box sx={{ display: { sm: 'flex', xs: 'none' } }}>
         <img
-          src={require("../../assets/logo-lg.png")}
+          src={require("../../assets/misc/logo-lg.png")}
           alt="Logo Full"
           height="180"
           style={{ opacity: 0.6, }}
